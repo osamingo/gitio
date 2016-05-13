@@ -12,7 +12,7 @@ install:
   - go get -u gopkg.in/h2non/gock.v1
 
 before_script:
-  - gochic .
+  - gochic ./...
 
 script:
   - go test -cover -race .
