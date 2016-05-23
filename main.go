@@ -6,13 +6,10 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/osamingo/gitio"
+	"github.com/osamingo/gitio/shortener"
 )
 
-var (
-	code = ""
-	w    = os.Stdout
-)
+var code = ""
 
 func init() {
 	flag.StringVar(&code, "code", "", "if you will be use any code, set code flag")
@@ -33,21 +30,21 @@ func main() {
 		ErrExit(err)
 	}
 
-	r, err := gitio.GenerateShortURL(u, code)
+	r, err := shortener.GenerateShortURL(u, code)
 	if err != nil {
 		ErrExit(err)
 	}
 
-	fmt.Fprintln(w, r)
+	fmt.Fprintln(os.Stdout, r)
 }
 
 // PrintUsage shows usage sentence.
 func PrintUsage() {
-	fmt.Fprintln(w, "Usage: gitio [-code=] url\nIf you will be use any code, set code flag")
+	fmt.Fprintln(os.Stdout, "Usage: gitio [-code=] url\nIf you will be use any code, set code flag")
 }
 
 // ErrExit exits with error.
 func ErrExit(err error) {
-	fmt.Fprintln(w, err)
+	fmt.Fprintln(os.Stderr, err)
 	os.Exit(1)
 }

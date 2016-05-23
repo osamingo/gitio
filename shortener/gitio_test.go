@@ -1,4 +1,4 @@
-package gitio
+package shortener
 
 import (
 	"errors"
