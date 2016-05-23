@@ -9,7 +9,7 @@ gitio comannd generates short url by [git.io](https://git.io).
 ## Installation
 
 ```
-$ go get -u github.com/osamingo/gitio/cmd
+$ go get -u github.com/osamingo/gitio
 ```
 
 ## Usage
